@@ -1,0 +1,122 @@
+    
+    Neben den automatischen Tests kann die Logik auch mit Testdateien getestet werden.
+    Diese Dateien sind speziell konstruierte Szenarien in denen ein Fehler Auftritt.
+    
+    \begin{table}[H]
+        \caption{Spielfeld Tests}
+        \begin{longtable}{p{6cm} p{4cm} p{2cm}} 
+            \hline
+            \textbf{Testfall} & \textbf{Erwartetes Ergebnis} & \textbf{Erzieltes Ergebnis}\\
+            \hline
+            Es wird getestet, ob das zu ladende Spielfeld fehlerfrei ist.
+            Die entsprechenden automatischen Unit-Tests (\textit{CorruptedNetwork*}) befinden sich in \textit{GameLogicTest}.
+            Manuell kann dies auch mithilfe der mitgelieferten Testdateien getestet werden.
+            Dazu muss jedoch das \textit{JAR} entpackt werden und die \textit{network.json} durch die
+            \textit{network\_wrongJson.json} oder die \textit{network\_wrongFormat.json} oder die
+            \textit{network\_wrongValues.json} ersetzt werden. Dabei ist zu beachten, dass die ersetzende Datei in \textit{network.json}
+            unbenannt werden muss. Das \textit{JAR} muss zusätzlich neu gepackt werden.
+            &
+            Das Programm sollte eine Fehlermeldung ausgeben, dass das zu ladende Spielfeld korrupt ist.
+            &
+            Das Programm gibt die Fehlermeldung aus.
+            \\
+            \hline
+        \end{longtable}
+    \end{table}
+
+    \begin{table}[H]
+        \caption{Spielstand Tests}
+        \begin{longtable}{p{6cm} p{4cm} p{2cm}} 
+            \hline
+            \textbf{Testfall} & \textbf{Erwartetes Ergebnis} & \textbf{Erzieltes Ergebnis}\\
+            \hline
+            \endfirsthead
+            Es wird getestet, ob die Spielstandsdatei fehlerfrei ist.
+            Die entsprechenden automatischen Unit-Tests (\textit{CorruptedSaveState*}) befinden sich in \textit{GameLogicTest}.
+            Manuell kann dies auch mithilfe der mitgelieferten Testdateien getestet werden.
+            Dazu wird die Datei \textit{save\_wrongJson.sy} geladen um eine fehlerhafte \textit{JSON}-Struktur zu testen.
+            Die Datei \textit{save\_wrongFormat.sy} hingegen testet, ob die formale Struktur eingehalten wird.
+            Dies bezieht fehlende Felder mit ein.
+            Die \textit{save\_wrongValues.sy} testet, ob die Werte korrekt sind. Dies beinhaltet z.B. negative Ticketanzahlen.
+            &
+            Das Programm sollte eine Fehlermeldung ausgeben, dass der zu ladende Spielstand korrupt ist.
+            &
+            Das Programm gibt die Fehlermeldung aus.
+            \\
+            \hline
+            Es wird getestet, ob ein Spielstand erfolgreich geladen wird.
+            Dazu wird die \textit{save.sy} Datei geladen.
+            &
+            Der Spielstand lädt erfolgreich. Dabei steht Mister-X auf der Station 138 und besitzt zehn Taxiticktes,
+            acht Bustickets, 4 U-Bahntickets und 2 Blacktickets. Das Fahrtenbuch ist dabei leer.
+            Die Detektive stehen jeweils auf den Stationen 197, 34 und 94 und besitzen 10 Taxitickets, 8 Bustickets und 4 U-Bahntickets.
+            Mister-X ist am Zug.
+            &
+            der Spielstand wird erfolgreich geladen und die Werte werden korrekt angezeigt.
+            \\
+            \hline
+        \end{longtable}
+    \end{table}
+
+
+    \begin{table}[H]
+        \caption{Interaktions Tests}
+        \begin{longtable}{p{6cm} p{4cm} p{2cm}} 
+            \hline
+            \textbf{Testfall} & \textbf{Erwartetes Ergebnis} & \textbf{Erzieltes Ergebnis}\\
+            \hline
+            \textbf{Station nicht erreichbar}\\
+            Es wird getestet, ob der Fehler abgefangen wird falls ein Spieler eine Station anklickt die zu weit entfernt wird.
+            Dafür wird das Spiel gestartet und auf eine Station geklickt die zu weit weg ist als, dass diese erreicht werden kann.
+            &
+            Das Programm sollte eine Infomeldung ausgeben, dass die Station nicht in einem Zug erreicht werden kann.
+            Zudem sollte der Spieler die erneute Möglichkeit haben eine Station zu wählen.
+            &
+            Das Programm gibt die Infomeldung aus.
+            \\
+            \hline
+            \textbf{Station über mehrere Tickets erreichbar}\\
+            Es wird getestet, ob dem Spieler eine Möglichkeit geboten wird zwischen mehreren Tickets zu wählen, falls dieser eine Station ausgewählt hat
+            die über mehrere Tickets angefahren werden kann.
+            Dazu klickt der Spieler auf eine erreichbare Station die über mehrere Verbindung erreichbar ist.
+            &
+            Dem Spieler sollte ein Dialog gezeigt werden, sodass dieser ein Ticket auswählen kann. Steuert der Spieler Mister-X wird ihm immer das Blackticket angeboten solange
+            dieser noch über genügend Blacktickets verfügt.
+            Falls der Spieler über kein Ticket mehr verfügt, sodass es keine Wahlmöglichekit gibt, wird die Station angefahren und das Ticket entfernt.
+            &
+            Dem Spieler wird der Dialog mit den richtigen Tickets angezeigt. Falls dieser Dialog abgebrochen bzw. geschlossen wird, wird das Ticket benutzt welches ausgewählt wurde.
+            \\
+            \hline
+            \textbf{Keine Verfügbaren Tickets mehr übrig}\\
+            Es wird getestet, ob dem Spieler eine Infomeldung ausgegeben wird, wenn ein Spieler versucht ein Verkehrsmittel zu benutzen
+            wofür er keine Tickets mehr hat.
+            Dazu wird solange gespielt, bis von einem Verkehrsmittel keine Tickets mehr vorhanden sind.
+            &
+            Dem Spieler sollte eine Infomeldung angezeigt werden, dass ihm keine Tickets mehr zur Verfügung stehen.
+            &
+            Dem Spieler wird die Infomeldung angezeigt.
+            \\
+            \hline
+        \end{longtable}
+    \end{table}
+
+    \begin{table}[H]
+        \caption{Einstellungs Tests}
+        \begin{longtable}{p{6cm} p{4cm} p{2cm}} 
+            \hline
+            \textbf{Testfall} & \textbf{Erwartetes Ergebnis} & \textbf{Erzieltes Ergebnis}\\
+            \hline
+            \endfirsthead
+            \textbf{Godmode}\\
+            Es wird getestet, ob der Godmode funktioniert.
+            Dabei wird das Spiel gestartet und auf eine Spielsituation abgewartet, in der sich Mister-X nicht zeigt.
+            Nun wird auf den \textit{Godmode}-Menüpunkt gedrückt.
+            &
+            Mister-X sollte sich sofort zeigen. Nach wiederholten drücken auf den Menüpunkt sollte dieser sich sofort wieder verstecken.
+            &
+            Mister-X wird korrekt dargestellt.
+            \\
+            \hline
+        \end{longtable}
+    \end{table}
+

@@ -1,0 +1,12 @@
+*.log
+*.lot
+*.lof
+*.fls
+*.toc
+*.aux
+*.fdb_latexmk
+*.gz
+*_temp.tex
+*.dvi
+/.vscode
+todo.txt

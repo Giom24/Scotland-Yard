@@ -1,0 +1,27 @@
+- Ki könnte besser sein wenn die zielpositionen abhänig davon wären auf welchen positionen die detective standen.
+  zb. Kann misterX zu diesem Zeitpunkt überhaupt da sein wenn alle wege doch blockiert sind?
+
+- Error handling beim logger
+
+-    // Vorteil da keine Code verdoddplung. nachteil kein Final
+    private GameLogic(Board board, GUIConnector gui) {
+
+- Ticket choose abbruch testen
+
+- IsDetecgivesBlocked erweitern ob sie wirklich geblockt sind!
+
+- getshortestway: schönerer begrenzung für 10 suchen
+
+- Save seralziser tickets in richtiger reihenfolge
+
+-netwerk.jhson muss sortiert sien
+
+LOG nochmal anshene! wer hat das spiel geewonnen?
+
+- Detektive hat keine tickets mehr?
+
+ALLE abblidungen auf english?
+
+-TYPO in lastSennDirection -> neue grafiken
+
+JOURNEYBOARD ints anschuaen

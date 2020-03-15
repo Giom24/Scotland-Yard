@@ -1,0 +1,61 @@
+\documentclass[numbers=noendperiod,bibliography=totoc,paper=a4,pagesize,DIV=calc,headings=small,10pt]{scrreprt}
+
+\usepackage[ngerman]{babel} % Sprachanpassungen
+\usepackage{fixltx2e} % Einige Problemf�lle von LaTeX2e
+\usepackage{soul} % Zus�tzliche M�glichkeiten der Textauszeichnung
+\usepackage{graphicx} % Einbindung von Graphiken
+\usepackage{float}
+\usepackage{listings}
+\usepackage{color}
+\usepackage{array}
+\usepackage{longtable}
+
+
+\pagenumbering{roman}
+%
+% Title Page
+\subject{Programmierpraktikum}
+\title{Scotland Yard}
+\subtitle{Benutzer- und Programmierhandbuch}
+\author{\textbf{Guillaume Fournier-Mayer}\\
+\texttt{tinf101922@fh-wedel.de}\\Fachrichtung Technische Informatik\\7. Fachsemester\\9. Verwaltungssemester}
+
+\date{\today{}, Hamburg\\[4cm]
+\includegraphics[scale=0.9]{img/fh_sw_RGB600dpi.eps}}
+
+
+\pagestyle{headings}
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+  language=Java,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+
+\begin{document}
+    \maketitle
+    \tableofcontents
+   
+    \pagenumbering{arabic}
+    \input{tex/einleitung/problemstellung.tex}
+    \input{tex/benutzerhandbuch/handbuch.tex}
+    \input{tex/programmiererhandbuch/handbuch.tex}
+
+    \listoffigures
+    \listoftables
+    
+\end{document}
